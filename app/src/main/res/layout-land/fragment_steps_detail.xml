@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="step"
+            type="br.com.rochamendes.bakingappudacityproject.entities.Steps" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_recycler">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:background="@color/background_recycler"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tag_step_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/paddingDefault"
+                    android:paddingTop="@dimen/paddingDefault"
+                    android:text="Step #"
+                    android:textSize="@dimen/tamEtiquetas" />
+
+                <TextView
+                    android:id="@+id/str_step_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/paddingDefault"
+                    android:paddingTop="@dimen/paddingDefault"
+                    android:text="@{String.valueOf(step.id)}"
+                    android:textSize="@dimen/tamEtiquetas"
+                    tools:text="1" />
+
+            </LinearLayout>
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/video"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:padding="@dimen/paddingDefault" />
+
+            <TextView
+                android:id="@+id/str_step_short_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:paddingTop="@dimen/paddingDefault"
+                android:text="@{step.shortDescription}"
+                android:textSize="@dimen/tamDados"
+                tools:text="Prep the cookie crust." />
+
+            <TextView
+                android:id="@+id/str_step_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingDefault"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:paddingTop="@dimen/paddingDefault"
+                android:paddingBottom="@dimen/paddingDefault"
+                android:text="@{step.description}"
+                android:textSize="@dimen/tamEtiquetas"
+                tools:text="2. Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar,
+                 and 1/2 teaspoon of salt together in a medium bowl.
+                  Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients
+                   and stir together until evenly mixed." />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <ImageView
+                    android:id="@+id/img_previous_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/img_next_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="40dp"
+                    app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+
+                <TextView
+                    android:id="@+id/txt_previous_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingLeft="@dimen/paddingDefault"
+                    android:paddingTop="@dimen/paddingDefault"
+                    android:paddingBottom="@dimen/paddingDefault"
+                    android:text="Previous Step"
+                    android:textSize="@dimen/tamEtiquetas" />
+
+                <TextView
+                    android:id="@+id/txt_next_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:paddingLeft="@dimen/paddingDefault"
+                    android:paddingTop="@dimen/paddingDefault"
+                    android:paddingBottom="@dimen/paddingDefault"
+                    android:text="Next Step"
+                    android:textSize="@dimen/tamEtiquetas" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

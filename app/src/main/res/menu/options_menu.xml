@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/ic_refresh_white_24dp"
+        android:title="@string/str_refresh"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/order"
+        android:icon="@drawable/ic_sort_white_24dp"
+        android:title="@string/str_order"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/updateInterval"
+        android:icon="@drawable/ic_timer_white_24dp"
+        android:title="@string/str_update_interval"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/offlineData"
+        android:icon="@drawable/ic_data_usage_white_24dp"
+        android:title="@string/str_offline_data"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+
+</menu>

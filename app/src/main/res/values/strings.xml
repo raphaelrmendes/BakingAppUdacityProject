@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Baking App Udacity Project</string>
+    <string name="title_fragment_ingredients">Ingredients</string>
+    <string name="title_fragment_steps_list">Steps List</string>
+    <string name="title_fragment_steps_detail">Steps Detail</string>
+    <string name="title_activity_main">Recipes</string>
+    <string name="title_activity_recipe">Recipe</string>
+    <string name="title_ingredients">Ingredients</string>
+    <string name="title_steps">Steps</string>
+    <string name="str_refresh">Refresh</string>
+    <string name="str_order">Order</string>
+    <string name="str_update_interval">Update Interval</string>
+    <string name="str_offline_data">Offline data</string>
+    <string name="str_explanation_illustrative_image">Illustrative Image</string>
+    <string name="appwidget_text">Ingredients List</string>
+    <string name="label_widget_config_selectRecipe">Select desired recipe:</string>
+    <string name="add_widget">Add ingredients list to Home Screen</string>
+</resources>

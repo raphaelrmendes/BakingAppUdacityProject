@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="step"
+            type="br.com.rochamendes.bakingappudacityproject.entities.Steps" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_recycler"
+            android:layout_margin="6dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tag_step_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/paddingDefault"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:text="Step #"
+                android:textSize="@dimen/tamEtiquetas"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/str_step_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/paddingDefault"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:text="@{String.valueOf(step.id)}"
+                android:textSize="@dimen/tamEtiquetas"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tag_step_number"/>
+
+            <TextView
+                android:id="@+id/str_step_short_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/paddingDefault"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:text="@{step.shortDescription}"
+                android:textSize="@dimen/tamDados"
+                app:layout_constraintTop_toBottomOf="@id/tag_step_number"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/video_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="16:9"
+                android:padding="@dimen/paddingDefault"
+                android:layout_marginLeft="@dimen/paddingDefault"
+                android:layout_marginRight="@dimen/paddingDefault"
+                app:layout_constraintTop_toBottomOf="@+id/str_step_short_description"/>
+
+            <TextView
+                android:id="@+id/str_step_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/paddingDefault"
+                android:paddingLeft="@dimen/paddingDefault"
+                android:paddingBottom="@dimen/paddingDefault"
+                android:text="@{step.description}"
+                android:textSize="@dimen/tamEtiquetas"
+                app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "br.com.rochamendes.bakingappudacityproject"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        // IMPORTANT: SHOULD PROVIDE A GOOGLE SEARCH API ENABLED KEY
+        File apiKey = new File("Google_Search_API_key.properties")
+        if (apiKey.exists()) {
+            def ArquivoAPI_key = rootProject.file('Google_Search_API_key.properties')
+            def PropriedadesAPI_key = new Properties()
+            PropriedadesAPI_key.load(new FileInputStream(ArquivoAPI_key))
+            buildConfigField "String", "Google_Search_API_key", PropriedadesAPI_key.getProperty('Google_Search_API_key')
+        }
+
+        dataBinding {
+            enabled = true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:3.2.0'
+
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // Appcompat
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    // Constraint Layout
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    // Vector Drawables
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.1'
+    // Support Library for Notification Compat
+    implementation 'androidx.core:core:1.0.2'
+    // Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    // Cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+    // Room components
+    def room_version = "2.1.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // Lifecycle components
+    def lifecycle_version = "2.0.0"
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // Media2 (not using now, but keeping here to remember)
+        //implementation "androidx.media2:media2-common:1.0.0-rc01"
+        //implementation "androidx.media2:media2-session:1.0.0-rc01"
+        //implementation "androidx.media2:media2-player:1.0.0-rc01"
+        //implementation "androidx.media2:media2-widget:1.0.0-beta01"
+    // Gson Utils
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // Exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.4'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0-alpha02'
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
